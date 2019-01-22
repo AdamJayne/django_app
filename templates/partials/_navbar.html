@@ -1,0 +1,57 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <div class="container">
+    <a href="{% url 'index' %}" class="navbar-brand">
+      <img src="{% static 'img/logo.png' %}" alt="" class="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav">
+        <li
+          {% if "/" == request.path %}
+            class="nav-item active mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+        >
+          <a href="{% url 'index' %}" class="nav-link">Home</a>
+        </li>
+        <li 
+          {% if "about" in request.path %}
+            class="nav-item active mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+        >
+          <a href="{% url 'about' %}" class="nav-link">About</a>
+        </li>
+        <li 
+          {% if 'listings' in request.path %}
+            class="nav-item active mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+        >
+          <a href="{% url 'listings' %}" class="nav-link">Featured Listings</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li 
+          class="nav-item mr-3"
+        >
+          <a href="register.html" class="nav-link">
+            <i class="fas fa-user-plus"></i> Register
+          </a>
+        </li>
+        <li class="nav-item mr-3">
+          <a href="login.html" class="nav-link">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
