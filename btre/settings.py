@@ -149,4 +149,9 @@ EMAIL_HOST_USER='django.testing1234@gmail.com'
 EMAIL_HOST_PASSWORD='DjangoTesting'
 EMAIL_USE_TLS=True
 
+# Import settings
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
